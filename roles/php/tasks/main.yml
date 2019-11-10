@@ -1,0 +1,56 @@
+---
+- name: Add PHP repo
+  apt_repository:
+    repo: ppa:ondrej/php
+
+- name: Install PHP
+  apt:
+    name: "{{ item }}"
+    state: present
+    force: yes
+    update_cache: yes
+  with_items:
+  - php7.3
+  - php7.3-fpm
+  - php7.3-mysql
+  - php-redis
+
+- name: Set PHP user
+  lineinfile: 
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
+    regexp: "^user"
+    line: "user = {{ username }}"
+    state: present
+  notify: restart php
+
+- name: Set PHP group    
+  lineinfile: 
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
+    regexp: "^group"
+    line: "group = {{ username }}"
+    state: present
+  notify: restart php
+
+- name: Set PHP listen owner    
+  lineinfile: 
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
+    regexp: "^listen\\.owner"
+    line: "listen.owner = {{ username }}"
+    state: present
+  notify: restart php
+
+- name: Set PHP listen group    
+  lineinfile: 
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
+    regexp: "^listen\\.group"
+    line: "listen.group = {{ username }}"
+    state: present
+  notify: restart php
+
+- name: Set PHP listen
+  lineinfile:
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
+    regexp: "^listen = /run/php/php7.3-fpm.sock"
+    line: "listen = 127.0.0.1:9000"
+    state: present
+  notify: restart php

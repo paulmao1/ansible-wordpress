@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  roles:
+   - common
+   - ufw
+   - user
+   - mysql
+   - nginx
+   - wordpress
+   - php
+   - ssh

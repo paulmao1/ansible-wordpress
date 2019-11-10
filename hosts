@@ -1,0 +1,13 @@
+# Add hosts here, one per line. Additional groups can be created using
+# [group] syntax. Hosts can join multiple groups.
+
+[webserver]
+10.110.156.15
+10.110.156.11
+
+[php]
+10.110.156.11
+
+[database]
+10.110.156.13
+

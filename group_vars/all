@@ -1,0 +1,24 @@
+ansible_python_interpreter: /usr/bin/python3
+
+username: paul
+# to generate password:
+#python3 -c 'import crypt; print(crypt.crypt("P@ssw0rd", "somesalt"))'
+password: somRYTDN25puo
+public_key: ~/.ssh/id_rsa.pub
+
+mysql_port: 3306
+
+db_user_name: paul
+db_user_pass: somRYTDN25puo 
+
+wp_user_name: wordpress
+wp_group: wordpress
+wp_user_pass: soedZRZIqWrGs
+
+website_name: www.test.local
+
+db_name: wordpress
+
+# if the archive with wordpress files will extracted to wp_path directory it will  var/www/html/wordpress/wordpress/ so we need to specify path to one level lower
+wp_extract_path: /var/www/html
+wp_path: /var/www/html/wordpress

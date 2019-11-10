@@ -1,0 +1,26 @@
+---
+- name: Fetch wordpress
+  get_url:
+    url: http://wordpress.org/latest.tar.gz
+    dest: /var/tmp/wordpress.tar.gz
+
+- name: Extract wordpress
+  unarchive:
+    src: /var/tmp/wordpress.tar.gz
+    dest: /var/www/
+    remote_src: yes
+    mode: 0755
+
+- name: stat wordpress
+  stat: path=/var/www/wordpress
+  register: wordpress_stat
+
+- name: stat web site
+  stat: path=/var/www/{{ website_name }}
+  register: site_stat
+
+- name: Rename wordpress
+  command: mv /var/www/wordpress /var/www/{{ website_name }}
+  when: 
+    - wordpress_stat.stat.exists
+    - site_stat.stat.exists == false
