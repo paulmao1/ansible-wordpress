@@ -1,32 +1,36 @@
 # WordPress Ansible
 
-This repository contains a playbook for provisioning modern hosting environments geared towards WordPress. It's based on [Hosting WordPress Yourself](https://deliciousbrains.com/hosting-wordpress-setup-secure-virtual-server/) and [WordPress Nginx](https://github.com/A5hleyRich/wordpress-nginx). The following is handled out of the box:
-
+This repository contains a playbook for provisioning modern hosting environments geared towards WordPress. 
 * User setup
 * SSH hardening
 * Firewall setup
 
 It will also install the following software:
 
-* Nginx with HTTP/2 and [improved default configs](https://github.com/A5hleyRich/wordpress-nginx)
-* PHP 7
+* Nginx with HTTP/2
+* PHP 5
 * MariaDB
 * Redis
 * WP-CLI
 * Fail2Ban
 * Git
 
+Supported platform:
+* Ubuntu16.0.4
+* Ubuntu18.0.4
+
+
 ## Usage
 
-Configure your [hosts file](https://github.com/A5hleyRich/wordpress-ansible/blob/master/hosts).
+1. Configure your [hosts file](https://github.com/paulmao1/ansible-wordpress/blob/master/hosts).
 
 ```
-[production]
-192.168.1.1 #sampledomain.com
+[webserver]
+10.110.156.15 #www.test.local
 ```
 
-Edit [provision.yml](https://github.com/A5hleyRich/wordpress-ansible/blob/master/provision.yml) to configure your default user, [hashed](http://docs.ansible.com/ansible/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module) sudo password and local public key path. This will create a new user on the provisioned servers that you can use to gain SSH access.
+2. Edit [provision.yml](https://github.com/paulmao1/ansible-wordpress/blob/master/provision.yml) to configure your default user, [hashed](http://docs.ansible.com/ansible/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module) sudo password and local public key path. This will create a new user on the provisioned servers that you can use to gain SSH access.
 
-Run:
+3. Run playbook:
 
 `ansible-playbook provision.yml`
