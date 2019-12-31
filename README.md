@@ -34,3 +34,7 @@ Supported platform:
 3. Run playbook:
 
 `ansible-playbook provision.yml`
+
+4. Install wordpress
+*  Browser http://www.test.local
+*  Create the new file `wp-config-sample.php` in the base directory of your WordPress directory  /var/www/www.test.local
