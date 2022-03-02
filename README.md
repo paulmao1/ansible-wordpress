@@ -29,7 +29,9 @@ Supported platform:
 10.110.156.15 #www.test.local
 ```
 
-2. Edit [environment variable](https://github.com/paulmao1/ansible-wordpress/blob/master/group_vars/all) to configure your default user, [hashed](http://docs.ansible.com/ansible/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module) sudo password and local public key path. This will create a new user on the provisioned servers that you can use to gain SSH access.
+2. Edit [environment variable](https://github.com/paulmao1/ansible-wordpress/blob/master/group_vars/all) to configure 
+*  your default user, password and local public key path. 
+*  DB and wordpress information
 
 3. Run playbook:
 
@@ -37,4 +39,6 @@ Supported platform:
 
 4. Install wordpress
 *  Browser http://www.test.local
-*  Create the new file `wp-config-sample.php` in the base directory of your WordPress directory  /var/www/www.test.local
+*  Input DB information and generate scripts for wp-config.php, you need to copy it.
+*  Touch the new file `wp-config.php` in the base directory of your WordPress directory  /var/www/www.test.local and paste the previous scripts
+*  Run Wordpress wizard to finish it
