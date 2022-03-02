@@ -1,21 +1,25 @@
 ansible_python_interpreter: /usr/bin/python3
+ansible_connection: ssh
+ansible_user: root
+ansible_ssh_pass: 666666
+
 
 username: paul
 # to generate password:
 #python3 -c 'import crypt; print(crypt.crypt("P@ssw0rd", "somesalt"))'
-password: somRYTDN25puo
+password: 666666
 public_key: ~/.ssh/id_rsa.pub
 
 mysql_port: 3306
 
 db_user_name: paul
-db_user_pass: somRYTDN25puo 
+db_user_pass: 666666
 
 wp_user_name: wordpress
 wp_group: wordpress
-wp_user_pass: soedZRZIqWrGs
+wp_user_pass: 666666
 
-website_name: www.test.local
+website_name: www.paulmao.cn
 
 db_name: wordpress
 
