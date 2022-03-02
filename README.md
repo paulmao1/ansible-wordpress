@@ -29,7 +29,7 @@ Supported platform:
 10.110.156.15 #www.test.local
 ```
 
-2. Edit [environment variable](https://github.com/paulmao1/ansible-wordpress/blob/master/group_vars/all) to configure 
+2. Edit [environment variable](https://github.com/paulmao1/ansible-wordpress/blob/master/group_vars/all) to define environment:
 *  your default user, password and local public key path. 
 *  DB and wordpress information
 
